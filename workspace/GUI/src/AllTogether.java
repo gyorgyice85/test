@@ -155,37 +155,31 @@ public class AllTogether extends JFrame implements ActionListener {
 				pibButton.setForeground(Color.red);
 				trueButton.setForeground(Color.red);
 				i++;
-				System.out.println("Wert von i:" + i);
 			}
 			if(e.getSource() == kiButton){
 				kiButton.setForeground(Color.blue);
 				bikoButton.setForeground(Color.blue);
 				i++;
-				System.out.println("Wert von i:" + i);
 			}
 			if(e.getSource() == archButton){
 				archButton.setForeground(Color.green);
 				duploButton.setForeground(Color.green);
 				i++;
-				System.out.println("Wert von i:" + i);
 			}
 			if(e.getSource() == soziButton){
 				soziButton.setForeground(Color.magenta);
 				siklaButton.setForeground(Color.magenta);
 				i++;
-				System.out.println("Wert von i:" + i);
 			}
 			if(e.getSource() == elekButton){
 				elekButton.setForeground(Color.orange);
 				wateButton.setForeground(Color.orange);
 				i++;
-				System.out.println("Wert von i:" + i);
 			}
 			if(e.getSource() == bgwButton){
 				bgwButton.setForeground(Color.yellow);
 				coleButton.setForeground(Color.yellow);
 				i++;
-				System.out.println("Wert von i:" + i);
 			}
 	}
 	
