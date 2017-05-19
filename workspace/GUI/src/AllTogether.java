@@ -6,11 +6,15 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -22,8 +26,19 @@ public class AllTogether extends JFrame implements ActionListener {
 	private JButton mySouthButton;
 	private JButton pibButton;
 	private JButton kiButton;
+	private JButton bgwButton;
+	private JButton archButton;
+	private JButton soziButton;
+	private JButton elekButton;
+	private JButton duploButton;
+	private JButton siklaButton;
+	private JButton bikoButton;
+	private JButton coleButton;
+	private JButton wateButton;
+	private JButton trueButton;
 	private JLabel lblHtml;
 	private JLabel text;
+	private int i = 0;	
 	
 	
 	Border headerBorder = LineBorder.createBlackLineBorder();
@@ -80,56 +95,98 @@ public class AllTogether extends JFrame implements ActionListener {
 
 	private void initializeEastGridLayout() {
 		myEastGridPanel = new JPanel();
-		myEastGridPanel.add(new Button("Cool, Duplo"));
-		myEastGridPanel.add(new Button("Singen und Klatschen"));
-		myEastGridPanel.add(new Button("Billige Kopie"));
-		myEastGridPanel.add(new Button("Cool, Lego!"));
-		myEastGridPanel.add(new Button("Wannabe-Tesla"));
-		myEastGridPanel.add(new Button("Ein wahre Ingenieurwissenschaft"));
-		myEastGridPanel.setForeground(Color.green);
-		myEastGridPanel.setBackground(Color.gray);
-		myEastGridPanel.setLayout(new GridLayout(4,2));
+		duploButton = new JButton("Cool, Duplo");
+		myEastGridPanel.add(duploButton);
+		siklaButton = new JButton("Singen und Klatschen");
+		myEastGridPanel.add(siklaButton);
+		bikoButton = new JButton("Billige Kopie");
+		myEastGridPanel.add(bikoButton);
+		coleButton = new JButton("Cool, Lego");
+		myEastGridPanel.add(coleButton);
+		wateButton = new JButton ("Wannbe-Tesla");
+		myEastGridPanel.add(wateButton);
+		trueButton = new JButton("Eine wahre Ingenieurwissenschaft");
+		myEastGridPanel.add(trueButton);
+		myEastGridPanel.setLayout(new GridLayout(3,2));
 		
 	}
 
 	private void initializeWestGridLayout(){
 		myWestGridPanel = new JPanel();
 		pibButton = new JButton("Praktische Informatik");
-		pibButton.setForeground(Color.green);
-		pibButton.setBackground(Color.gray);
 		pibButton.addActionListener(this);
 		myWestGridPanel.add(pibButton);
+		
 		kiButton = new JButton("Kommunikationsinformatik");
-		kiButton.setForeground(Color.green);
-		kiButton.setBackground(Color.gray);
 		kiButton.addActionListener(this);
 		myWestGridPanel.add(kiButton);
-		myWestGridPanel.add(new Button("Kommunikationsinformatik"));
-		myWestGridPanel.add(new Button("Bauingenieurwesen"));
-		myWestGridPanel.add(new Button("Architektur"));
-		myWestGridPanel.add(new Button("Sozialwesen"));
-		myWestGridPanel.add(new Button("Elektrotechnik"));
-		myWestGridPanel.setForeground(Color.green);
-		myWestGridPanel.setBackground(Color.gray);
+		
+		bgwButton = new JButton("Bauingenieurwesen");
+		bgwButton.addActionListener(this);
+		myWestGridPanel.add(bgwButton);
+		
+		archButton = new JButton("Architektur");
+		archButton.addActionListener(this);
+		myWestGridPanel.add(archButton);
+		
+		soziButton = new JButton("Sozialwesen");
+		soziButton.addActionListener(this);
+		myWestGridPanel.add(soziButton);
+		
+		elekButton = new JButton ("Elektrotechnik");
+		elekButton.addActionListener(this);
+		myWestGridPanel.add(elekButton);
+		
 		myWestGridPanel.setLayout(new GridLayout(4, 2));
 		
 	}
-	public static void main (String[] args){
-		new AllTogether();
-	}
-
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+			if(i == 5){
+				JFrame jframe = new JFrame();
+				jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				jframe.pack();
+				jframe.setVisible(true);
+				JOptionPane.showMessageDialog(jframe, "Bei dem Streit um die Wahrheit bleibt der Streit die einzige Wahrheit.");
+			}
+			
 			if(e.getSource() == pibButton){
 				pibButton.setForeground(Color.red);
-				
+				trueButton.setForeground(Color.red);
+				i++;
+				System.out.println("Wert von i:" + i);
 			}
 			if(e.getSource() == kiButton){
-				kiButton.setForeground(Color.red);
-				//kiButton.setEnabled(false); 
+				kiButton.setForeground(Color.blue);
+				bikoButton.setForeground(Color.blue);
+				i++;
+				System.out.println("Wert von i:" + i);
 			}
-		
+			if(e.getSource() == archButton){
+				archButton.setForeground(Color.green);
+				duploButton.setForeground(Color.green);
+				i++;
+				System.out.println("Wert von i:" + i);
+			}
+			if(e.getSource() == soziButton){
+				soziButton.setForeground(Color.magenta);
+				siklaButton.setForeground(Color.magenta);
+				i++;
+				System.out.println("Wert von i:" + i);
+			}
+			if(e.getSource() == elekButton){
+				elekButton.setForeground(Color.orange);
+				wateButton.setForeground(Color.orange);
+				i++;
+				System.out.println("Wert von i:" + i);
+			}
+			if(e.getSource() == bgwButton){
+				bgwButton.setForeground(Color.yellow);
+				coleButton.setForeground(Color.yellow);
+				i++;
+				System.out.println("Wert von i:" + i);
+			}
 	}
 	
 	private class CloseListener implements ActionListener{
@@ -138,6 +195,10 @@ public class AllTogether extends JFrame implements ActionListener {
 			System.exit(0);
 		}
 	}
+	public static void main (String[] args){
+		new AllTogether();
+	}
+
 	
 	
 }
