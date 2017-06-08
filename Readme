@@ -1,0 +1,2 @@
+Cube class, which uses a Square Class to emulate its "corners"-squares.
+Furthermore PolarCoordinates can be set in the cube's squares.
