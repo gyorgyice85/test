@@ -5,8 +5,8 @@ public class Square {
 		private int startY;
 		private int endX;
 		private int endY;
-		private int pointA;
-		private int pointB;
+		private int xAchse;
+		private int yAchse;
 		
 		
 		/*
@@ -37,8 +37,8 @@ public class Square {
 			return endY;
 		}
 		public void setCoordinate(int a, int b){
-			this.pointA = a;
-			this.pointB = b;
+			this.xAchse = a;
+			this.yAchse = b;
 		}
 		
 		
