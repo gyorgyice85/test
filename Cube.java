@@ -2,7 +2,7 @@
 public class Cube {
 	
 	/*
-	 * A Cube constis of six 2-D Squares
+	 * A Cube consists of six 2-D Squares
 	 */
 	Cube cube = new Cube();
 	Square square = new Square();
@@ -15,7 +15,7 @@ public class Cube {
 	
 	
 	/**
-	 * Corners of the cube. Not neccessarily needed (yet)
+	 * Corners of the cube. Not necessarily needed (yet)
 	 *
 	 */
 	final PolarCoordinate CornerOne  = new PolarCoordinate (0, 0, 0);
@@ -35,15 +35,20 @@ public class Cube {
 	public void setPolarCoordinate(PolarCoordinate polarCoordinate) throws NonValidPolarCoordinateException{
 		if(cube.isValidPolarCoordinate(polarCoordinate) == true){
 			if(cube.whichSquare(polarCoordinate) == leftSquare){
-				this.leftSquare.setCoordinate(polarCoordinate.getY(), polarCoordinate.getZ());
+				this.leftSquare.setCoordinate(polarCoordinate.getZ(), polarCoordinate.getY());
+				
 			}else if(cube.whichSquare(polarCoordinate) == bottomSquare){
 				this.bottomSquare.setCoordinate(polarCoordinate.getX(), polarCoordinate.getZ());
+				
 			}else if(cube.whichSquare(polarCoordinate) == frontSquare){
 				this.frontSquare.setCoordinate(polarCoordinate.getX(), polarCoordinate.getY());
+				
 			}else if(cube.whichSquare(polarCoordinate) == rightSquare){
-				this.rightSquare.setCoordinate(polarCoordinate.getY(), polarCoordinate.getZ());
+				this.rightSquare.setCoordinate(polarCoordinate.getZ(), polarCoordinate.getY());
+				
 			}else if(cube.whichSquare(polarCoordinate) == topSquare){
 				this.topSquare.setCoordinate(polarCoordinate.getX(), polarCoordinate.getZ());
+				
 			}else if(cube.whichSquare(polarCoordinate) == backSquare){
 				this.backSquare.setCoordinate(polarCoordinate.getX(), polarCoordinate.getY());
 			}
