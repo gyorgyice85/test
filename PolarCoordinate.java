@@ -58,6 +58,8 @@ public class PolarCoordinate {
 		}
 	}
 	
+
+	
 	/**
 	 * Check if the given coordinates are potential neighbors
 	 * @param pc the Coordinate that I want to know of if the potNeighbor is really a neighbor
@@ -132,6 +134,7 @@ public class PolarCoordinate {
 	}
 	
 	public void setNeighbor(PolarCoordinate neighbor) {
+
 		this.neighbor = neighbor;
 	}
 	
@@ -155,6 +158,13 @@ public class PolarCoordinate {
 	
 	public void setZ(int z){
 		this.z = z;
+	}
+	
+	public String toString(){
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append(getX()).append(", ").append(getY()).append(", ").append(getZ());
+		return sb.toString();
 	}
 	
 }

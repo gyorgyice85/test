@@ -64,11 +64,7 @@ public class Cube {
 		}
 	}
 	
-	private void assignNeighbor(PolarCoordinate pc1 , PolarCoordinate pc2){
-		pc1.setNeighbor(pc2);
-		pc2.setNeighbor(pc1);
-		
-	}
+
 	
 	
 	/**

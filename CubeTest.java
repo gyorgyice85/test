@@ -24,11 +24,18 @@ public class CubeTest {
 				PolarCoordinate pc2 = new PolarCoordinate(0, 7, 99);
 				System.out.println("Which Square "+cube.whichSquare(pc2)+ "| Should be: not be null\n");
 				cube.setPolarCoordinate(pc2);
+				PolarCoordinate neighbor = new PolarCoordinate(0,8,56);
+				cube.setPolarCoordinate(neighbor);
+				pc2.setNeighbor(neighbor);
+				System.out.println("Neighbor: "+ pc2.getNeighbor());
 				
 				}catch(Exception e){
 					e.printStackTrace();
 					System.out.println();
 				}
+				
+				
+				
 					
 				try{
 				System.out.println("x=100, y=100, z=100 ");
