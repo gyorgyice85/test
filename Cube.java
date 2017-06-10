@@ -20,14 +20,17 @@ public class Cube {
 	 */
 	private final static short MAX = 100;
 	private final static short MIN = 0;
-	private final PolarCoordinate CornerOne  = new PolarCoordinate (MIN, MIN, MIN);
-	private final PolarCoordinate CornerTwo  = new PolarCoordinate (MAX, MIN, MIN);
-	private final PolarCoordinate CornerThree= new PolarCoordinate (MIN, MAX, MIN);
-	private final PolarCoordinate CornerFour = new PolarCoordinate (MIN, MIN, MAX);
-	private final PolarCoordinate CornerFive = new PolarCoordinate (MAX, MAX, MIN);
-	private final PolarCoordinate CornerSix  = new PolarCoordinate (MIN, MAX, MAX);
-	private final PolarCoordinate CornerSeven= new PolarCoordinate (MAX, MIN, MAX);
-	private final PolarCoordinate CornerEight= new PolarCoordinate (MAX, MAX, MAX);
+
+		private final PolarCoordinate CornerOne  = new PolarCoordinate (MIN, MIN, MIN);
+		private final PolarCoordinate CornerTwo  = new PolarCoordinate (MAX, MIN, MIN);
+		private final PolarCoordinate CornerThree= new PolarCoordinate (MIN, MAX, MIN);
+		private final PolarCoordinate CornerFour = new PolarCoordinate (MIN, MIN, MAX);
+		private final PolarCoordinate CornerFive = new PolarCoordinate (MAX, MAX, MIN);
+		private final PolarCoordinate CornerSix  = new PolarCoordinate (MIN, MAX, MAX);
+		private final PolarCoordinate CornerSeven= new PolarCoordinate (MAX, MIN, MAX);
+		private final PolarCoordinate CornerEight= new PolarCoordinate (MAX, MAX, MAX);
+
+	
 	
 
 	
