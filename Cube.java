@@ -64,6 +64,12 @@ public class Cube {
 		}
 	}
 	
+	private void assignNeighbor(PolarCoordinate pc1 , PolarCoordinate pc2){
+		pc1.setNeighbor(pc2);
+		pc2.setNeighbor(pc1);
+		
+	}
+	
 	
 	/**
 	 * Depending on the ranges of (x,y,z)-coordinates, this method specifies the square in which the coordinate belongs
