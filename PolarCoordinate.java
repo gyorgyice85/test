@@ -97,11 +97,11 @@ public class PolarCoordinate {
 	 * @return true if only one min or max exists
 	 */
 	private boolean maxMinExists(int x,int y,int z){
-		if(x == MAX || x == MIN && y != MAX && y != MIN && z != MAX && z != MIN){
+		if((x == MAX || x == MIN) && y != MAX && y != MIN && z != MAX && z != MIN){
 			return true;
-		}else if (y == MAX || y == MIN && x != MAX && x != MIN && z != MAX && z != MIN){
+		}else if ((y == MAX || y == MIN) && x != MAX && x != MIN && z != MAX && z != MIN){
 			return true;
-		}else if(z == MAX || z == MIN && y != MAX && y != MIN && x != MAX && x != MIN){
+		}else if((z == MAX || z == MIN) && y != MAX && y != MIN && x != MAX && x != MIN){
 			return true;
 		}
 		return false;
