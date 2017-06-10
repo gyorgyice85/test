@@ -14,10 +14,13 @@ public class PolarCoordinate {
 		if(proofNegative(x, y, z)){
 			throw new InputMismatchException("Negative Coordinates are not allowed");
 		}else{
-			this.x = x;
-			this.y = y;
-		    this.z = z;
+			setX(x);
+			setY(y);
+		    setZ(z);
 		}
+	}
+	public PolarCoordinate(){
+		
 	}
 	
 	/*

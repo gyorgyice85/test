@@ -4,7 +4,6 @@ public class Cube {
 	/*
 	 * A Cube consists of six 2-D Squares
 	 */
-	Cube cube = new Cube();
 	Square square = new Square();
 	Square leftSquare = new Square();
 	Square rightSquare = new Square();
@@ -27,12 +26,13 @@ public class Cube {
 	final PolarCoordinate CornerSeven= new PolarCoordinate (100, 0, 100);
 	final PolarCoordinate CornerEight= new PolarCoordinate (100, 100, 100);
 	
-
+	
 	
 	/*
 	 * Places the PolarCoordinate inside the specific square of the cube
 	 */
 	public void setPolarCoordinate(PolarCoordinate polarCoordinate) throws NonValidPolarCoordinateException{
+		Cube cube = new Cube();
 		if(cube.isValidPolarCoordinate(polarCoordinate) == true){
 			if(cube.whichSquare(polarCoordinate) == leftSquare){
 				this.leftSquare.setCoordinate(polarCoordinate.getZ(), polarCoordinate.getY());
@@ -54,7 +54,7 @@ public class Cube {
 			}
 	
 		}else{
-			throw new NonValidPolarCoordinateException();
+			throw new NonValidPolarCoordinateException("The coordinates are not valid");
 		}
 	}
 	
@@ -88,10 +88,12 @@ public class Cube {
 	 * Proofs if PolarCoordinate is valid: Does it lie inside a square?
 	*/
 	private boolean isValidPolarCoordinate(PolarCoordinate polarCoordinate){
-		if(polarCoordinate.getX() <= square.getEndX() && polarCoordinate.getX() >= square.getStartY()){
-		}else if(polarCoordinate.getY() <= square.getEndY() && polarCoordinate.getY() >= square.getStartY()){
-		}else if(polarCoordinate.getZ() <= square.getEndY() && polarCoordinate.getZ() >= square.getStartY()){
-			return true;
+		if(polarCoordinate.getX() < square.getEndX() && polarCoordinate.getX() > square.getStartY()){
+			if(polarCoordinate.getY() < square.getEndY() && polarCoordinate.getY() > square.getStartY()){
+				if(polarCoordinate.getZ() < square.getEndY() && polarCoordinate.getZ() > square.getStartY()){
+					return true;
+				}
+			}
 		}return false;
 	}
 		

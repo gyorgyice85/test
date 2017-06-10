@@ -1,9 +1,15 @@
 
 public class NonValidPolarCoordinateException extends Exception {
-	public NonValidPolarCoordinateException(){
-		}
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public NonValidPolarCoordinateException(String message){
-		super("The Coordinates are not valid!");
+		super(message);
 	}
+	
 	
 }
