@@ -2,6 +2,9 @@ import java.util.InputMismatchException;
 
 public class PolarCoordinate {
 
+	private static final String MTONMNVE = "There is either none or more than one Min/Max value, only one Max/Min value is allowed";
+	private static final int MAX = 100;
+	private static final int MIN = 0;
 	private int x;
 	private int y;
 	private int z;
@@ -30,10 +33,12 @@ public class PolarCoordinate {
 	 * @param neighbor is the neighbor in your zone 
 	 * @throws InputMismatchException if on of the x,y,z values are negative throw this exeption.
 	 */
-	public PolarCoordinate(int x, int y, int z, PolarCoordinate neighbor)throws InputMismatchException{
+	public PolarCoordinate(int x, int y, int z, PolarCoordinate neighbor)throws InputMismatchException, MoreThanOneOrNoneMinMaxValueException{
 		if(proofNegative(x, y, z)){
 			throw new InputMismatchException("Negative Coordinates are not allowed");
-		}else{
+		}else if (proofNegative(x,y,z) && maxMinExists(x,y,z)){
+			throw new MoreThanOneOrNoneMinMaxValueException(MTONMNVE);
+		}else {
 			this.x = x;
 			this.y = y;
 		    this.z = z;
@@ -80,6 +85,24 @@ public class PolarCoordinate {
 		}
 		
 		return false;	
+	}
+	
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @return true if only one min or max exists
+	 */
+	private boolean maxMinExists(int x,int y,int z){
+		if(x == MAX || x == MIN && y != MAX && y != MIN && z != MAX && z != MIN){
+			return true;
+		}else if (y == MAX || y == MIN && x != MAX && x != MIN && z != MAX && z != MIN){
+			return true;
+		}else if(z == MAX || z == MIN && y != MAX && y != MIN && x != MAX && x != MIN){
+			return true;
+		}
+		return false;
 	}
 	
 	private boolean isXequal(PolarCoordinate pc1, PolarCoordinate pc2){
