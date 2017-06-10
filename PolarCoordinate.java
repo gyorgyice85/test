@@ -4,11 +4,13 @@ public class PolarCoordinate {
 
 	private int x;
 	private int y;
-	private int z;	
+	private int z;
+	private PolarCoordinate neighbor;
+	
 	
 	/**
 	 * Creates PolarCoordinate, which must consist of positive Integers
-	 * @param x,y,z
+	 * @param x,y,z-Axis(values)
 	 */
 	public PolarCoordinate(int x, int y, int z)throws InputMismatchException{
 		if(proofNegative(x, y, z)){
@@ -17,6 +19,25 @@ public class PolarCoordinate {
 			this.x = x;
 			this.y = y;
 		    this.z = z;
+		}
+	}
+	
+	/**
+	 * Creates PolarCoordinate, which consists of positive Integers and a neighbor that is a PolarCoordinate
+	 * @param x-Axis(value)
+	 * @param y-Axis(value)
+	 * @param z-Axis(value)
+	 * @param neighbor is the neighbor in your zone 
+	 * @throws InputMismatchException if on of the x,y,z values are negative throw this exeption.
+	 */
+	public PolarCoordinate(int x, int y, int z, PolarCoordinate neighbor)throws InputMismatchException{
+		if(proofNegative(x, y, z)){
+			throw new InputMismatchException("Negative Coordinates are not allowed");
+		}else{
+			this.x = x;
+			this.y = y;
+		    this.z = z;
+		    this.neighbor = neighbor;
 		}
 	}
 	
@@ -32,7 +53,64 @@ public class PolarCoordinate {
 		}
 	}
 	
+	/**
+	 * Check if the given coordinates are potential neighbors
+	 * @param pc the Coordinate that I want to know of if the potNeighbor is really a neighbor
+	 * @param potNeighbor a potential neighbor
+	 * @return true if potNeighbor is in reach of the pc, else return false
+	 */
+	public boolean isNeighbor(PolarCoordinate pc,PolarCoordinate potNeighbor){
+		if(pc.getX() == potNeighbor.getX() && pc.getY() == potNeighbor.getY() && pc.getZ() == potNeighbor.getZ()){
+			return false;
+			//if X and/or Y are equal Z can't be equal
+		}else if(pc.getX()-1 == potNeighbor.getX() || pc.getX()+1 == potNeighbor.getX() || isXequal(pc, potNeighbor)
+				&& pc.getY()-1 == potNeighbor.getY() || pc.getY()+1 == potNeighbor.getY() || isYequal(pc, potNeighbor)
+				 && pc.getZ()-1 == potNeighbor.getZ() || pc.getZ()+1 == potNeighbor.getZ() || !(isZequal(pc,potNeighbor))){
+			return true;
+			//if X and/or Z are equal Y can't be equal
+		}else if(pc.getX()-1 == potNeighbor.getX() || pc.getX()+1 == potNeighbor.getX() || isXequal(pc, potNeighbor)
+				&& pc.getY()-1 == potNeighbor.getY() || pc.getY()+1 == potNeighbor.getY() || !(isYequal(pc, potNeighbor))
+				 && pc.getZ()-1 == potNeighbor.getZ() || pc.getZ()+1 == potNeighbor.getZ() || isZequal(pc,potNeighbor)){
+			return true;
+			//if Y and/or Z are equal X can't be equal
+		}else if(pc.getX()-1 == potNeighbor.getX() || pc.getX()+1 == potNeighbor.getX() || !(isXequal(pc, potNeighbor))
+				&& pc.getY()-1 == potNeighbor.getY() || pc.getY()+1 == potNeighbor.getY() || isYequal(pc, potNeighbor)
+				 && pc.getZ()-1 == potNeighbor.getZ() || pc.getZ()+1 == potNeighbor.getZ() || isZequal(pc,potNeighbor)){
+			return true;
+		}
+		
+		return false;	
+	}
 	
+	private boolean isXequal(PolarCoordinate pc1, PolarCoordinate pc2){
+		if(pc1.getX() == pc2.getX()){
+			return true;
+		}
+		return false;
+	}
+	
+	private boolean isYequal(PolarCoordinate pc1, PolarCoordinate pc2){
+		if(pc1.getY() == pc2.getY()){
+			return true;
+		}
+		return false;
+	}
+	
+	private boolean isZequal(PolarCoordinate pc1, PolarCoordinate pc2){
+		if(pc1.getZ() == pc2.getZ()){
+			return true;
+		}
+		return false;
+	}
+	
+	//getter and setters
+	public PolarCoordinate getNeighbor() {
+		return neighbor;
+	}
+	
+	public void setNeighbor(PolarCoordinate neighbor) {
+		this.neighbor = neighbor;
+	}
 	
 	public int getX(){
 		return this.x;
